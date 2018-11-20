@@ -1,0 +1,8 @@
+## roles/ansible-role-patching/tasks/main.yml
+# vim:ft=ansible:
+---
+- include_tasks: perform-patch.yml
+  #strategy: free
+- include_tasks: reboot-server.yml
+  when: "patch_reboot == 'yes'"
+...

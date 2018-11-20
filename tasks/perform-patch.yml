@@ -1,0 +1,44 @@
+## roles/patching/tasks/perform-patch.yml
+# vim:ft=ansible:
+---
+- name: yum upgrade
+  yum: 
+    name: '*'
+    state: latest
+    exclude: '{{ patch_exclude }}'
+  environment: '{{ patch_env }}'
+  when: "'yum' in ansible_pkg_mgr"
+
+- name: dnf upgrade (exclude not supported as of Ansible 2.7)
+  dnf:
+    name: '*'
+    state: latest
+  environment:  '{{ patch_env }}'
+  when: "'dnf' in ansible_pkg_mgr"
+  
+- name: pacman clean
+  command: yes | pacman -Scc
+  when: "'pacman' in ansible_pkg_mgr"
+
+- name: pacman upgrade
+  pacman:
+    update_cache: yes
+    upgrade: yes
+  environment: '{{ patch_env }}'
+  when: "'pacman' in ansible_pkg_mgr"
+
+- name: apt-get dist-upgrade
+  apt:
+    upgrade: dist
+    update_cache: yes
+  environment: '{{ patch_env }}'
+  when: "'apt' in ansible_pkg_mgr"
+
+- name: zypper upgrade
+  zypper:
+    name: '*'
+    state: latest
+    type: patch
+  environment: '{{ patch_env }}'
+  when: "'zypper' in ansible_pkg_mgr"
+...
