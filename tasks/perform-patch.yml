@@ -6,14 +6,14 @@
     name: '*'
     state: latest
     exclude: '{{ patch_exclude }}'
-  environment: '{{ patch_env }}'
+  environment: "{{ patch_env | default('') }}"
   when: "'yum' in ansible_pkg_mgr"
 
 - name: dnf upgrade (exclude not supported as of Ansible 2.7)
   dnf:
     name: '*'
     state: latest
-  environment:  '{{ patch_env }}'
+  environment: "{{ patch_env | default('') }}"
   when: "'dnf' in ansible_pkg_mgr"
   
 - name: pacman clean
@@ -24,14 +24,14 @@
   pacman:
     update_cache: yes
     upgrade: yes
-  environment: '{{ patch_env }}'
+  environment: "{{ patch_env | default('') }}"
   when: "'pacman' in ansible_pkg_mgr"
 
 - name: apt-get dist-upgrade
   apt:
     upgrade: dist
     update_cache: yes
-  environment: '{{ patch_env }}'
+  environment: "{{ patch_env | default('') }}"
   when: "'apt' in ansible_pkg_mgr"
 
 - name: zypper upgrade
@@ -39,6 +39,6 @@
     name: '*'
     state: latest
     type: patch
-  environment: '{{ patch_env }}'
+  environment: "{{ patch_env | default('') }}"
   when: "'zypper' in ansible_pkg_mgr"
 ...
