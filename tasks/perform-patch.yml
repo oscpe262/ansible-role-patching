@@ -5,14 +5,15 @@
   yum: 
     name: '*'
     state: latest
-    exclude: '{{ patch_exclude }}'
+    exclude: "{{ patch_exclude | default('') }}"
   environment: "{{ patch_env | default('') }}"
   when: "'yum' in ansible_pkg_mgr"
 
-- name: dnf upgrade (exclude not supported as of Ansible 2.7)
+- name: dnf upgrade 
   dnf:
     name: '*'
     state: latest
+    exclude: "{{ patch_exclude | default('') }}"
   environment: "{{ patch_env | default('') }}"
   when: "'dnf' in ansible_pkg_mgr"
   
