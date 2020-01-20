@@ -25,12 +25,12 @@ galaxy_info:
       - bionic
       - disco dingo
       - eoan
-  - name: Arch
+  - name: ArchLinux
     versions:
-      - all
-  - name: SuSE
+      - any
+  - name: opensuse
     versions:
-      - all
+      - any
 
   galaxy_tags:
     - rhel
