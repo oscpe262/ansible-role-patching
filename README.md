@@ -7,7 +7,7 @@ An Ansible role for patching systems (Arch Linux, Redhat family, Suse, Debian).
 ## Role Variables
 | Variable		| Default		| Comments (type) |
 | :---			| :---			| :---		  |
-| `patch_env` | [] | Set proxy (see example below |)
+| `patch_env` | undefined | Set proxy (see example below |)
 | `patch_reboot` | `no` | Set to `yes` to automatically reboot after patching. |
 
 ## Dependencies
@@ -28,7 +28,7 @@ An Ansible role for patching systems (Arch Linux, Redhat family, Suse, Debian).
 
 ## License
 
-BSD
+MIT
 
 ## Contributors
 

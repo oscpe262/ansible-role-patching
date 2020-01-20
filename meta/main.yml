@@ -1,13 +1,40 @@
-## roles/ansible-role-patching/meta/main.yml
-# vim:ft=ansible:
----
-## If another roles lists a dependency, it will only run once by default
-allow_duplicates: no
+galaxy_info:
+  author: Oscar Petersson
+  description: A role for patching Linux systems
 
-## List of role dependencies
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: Fedora
+    versions:
+      - 29
+      - 30
+      - 31
+  - name: EL
+    versions:
+      - 7
+      - 8
+  - name: Debian
+    versions:
+      - stretch
+      - buster
+  - name: Ubuntu
+    versions:
+      - bionic
+      - disco dingo
+      - eoan
+  - name: Arch
+    versions:
+      - all
+  - name: SuSE
+    versions:
+      - all
+
+  galaxy_tags:
+    - rhel
+    - redhat
+
 dependencies: []
-
-  # If dependency, remove brackets, list as suggested below:
-  # - { role: foorole, some_parameter: 3, another_parameter: 4 }
-
-...
+allow_duplicates: no
