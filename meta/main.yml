@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: patching
   author: Oscar Petersson
   description: A role for patching Linux systems
 
