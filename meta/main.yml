@@ -30,7 +30,11 @@ galaxy_info:
       - any
   - name: opensuse
     versions:
-      - any
+      - 12.1
+      - 12.2
+      - 12.3
+      - 13.1
+      - 13.2
 
   galaxy_tags:
     - rhel
