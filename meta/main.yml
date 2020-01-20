@@ -40,6 +40,10 @@ galaxy_info:
   galaxy_tags:
     - rhel
     - redhat
+    - patching
+    - patch
+    - system
+    - security
 
 dependencies: []
 allow_duplicates: no
